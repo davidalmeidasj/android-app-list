@@ -8,4 +8,8 @@
     <string name="title_home">Tittle Home</string>
     <string name="title_dashboard">Tittle Dashboard</string>
     <string name="title_notifications">Title Notifications</string>
+    <string name="nome">Nome</string>
+    <string name="tipo">Tipo</string>
+    <string name="numeroDaVersao">Número da versão</string>
+    <string name="lancamento">Data de lançamento</string>
 </resources>
