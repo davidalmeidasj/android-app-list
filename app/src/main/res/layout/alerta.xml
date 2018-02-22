@@ -16,7 +16,7 @@ android:layout_height="wrap_content">
         android:layout_height="match_parent">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/username"
+            android:id="@+id/nomeDialog"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@ android:layout_height="wrap_content">
         android:layout_height="match_parent">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tipo"
+            android:id="@+id/tipoDialog"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@ android:layout_height="wrap_content">
         android:layout_height="match_parent">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/numeroDaVersao"
+            android:id="@+id/numeroDaVersaoDialog"
             android:inputType="numberDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

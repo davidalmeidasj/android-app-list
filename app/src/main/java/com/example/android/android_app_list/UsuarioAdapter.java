@@ -5,6 +5,8 @@ import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,7 +23,7 @@ public class UsuarioAdapter extends ArrayAdapter<UsuarioModel> implements View.O
         TextView txtName;
         TextView txtType;
         TextView txtVersion;
-        ImageView info;
+        TextView info;
     }
 
     public UsuarioAdapter(ArrayList<UsuarioModel> data, Context context) {
@@ -34,17 +36,6 @@ public class UsuarioAdapter extends ArrayAdapter<UsuarioModel> implements View.O
     @Override
     public void onClick(View v) {
 
-        int position=(Integer) v.getTag();
-        Object object= getItem(position);
-        UsuarioModel dataModel=(UsuarioModel)object;
-
-        switch (v.getId())
-        {
-            case R.id.item_info:
-                Snackbar.make(v, "Release date " +dataModel.getLancamento(), Snackbar.LENGTH_LONG)
-                        .setAction("No action", null).show();
-                break;
-        }
     }
 
     private int lastPosition = -1;
@@ -66,7 +57,7 @@ public class UsuarioAdapter extends ArrayAdapter<UsuarioModel> implements View.O
             viewHolder.txtName = (TextView) convertView.findViewById(R.id.nome);
             viewHolder.txtType = (TextView) convertView.findViewById(R.id.tipo);
             viewHolder.txtVersion = (TextView) convertView.findViewById(R.id.numeroDaVersao);
-            viewHolder.info = (ImageView) convertView.findViewById(R.id.item_info);
+            viewHolder.info = (TextView) convertView.findViewById(R.id.item_info);
 
             result=convertView;
 
@@ -76,15 +67,14 @@ public class UsuarioAdapter extends ArrayAdapter<UsuarioModel> implements View.O
             result=convertView;
         }
 
-//        Animation animation = AnimationUtils.loadAnimation(mContext, (position > lastPosition) ? R.anim.up_from_bottom : R.anim.down_from_top);
-//        result.startAnimation(animation);
+        Animation animation = AnimationUtils.loadAnimation(mContext, (position > lastPosition) ? R.anim.up_from_bottom : R.anim.down_from_top);
+        result.startAnimation(animation);
         lastPosition = position;
 
         viewHolder.txtName.setText(usuarioModel.getNome());
         viewHolder.txtType.setText(usuarioModel.getTipo());
         viewHolder.txtVersion.setText(usuarioModel.getNumeroDaVersao());
-        viewHolder.info.setOnClickListener(this);
-        viewHolder.info.setTag(position);
+        viewHolder.info.setText(usuarioModel.getLancamento());
         // Return the completed view to render on screen
         return convertView;
     }

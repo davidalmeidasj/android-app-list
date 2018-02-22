@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -134,15 +135,23 @@ public class MainActivity extends AppCompatActivity
 
                 //Exibe
                 alerta.show();
-
-                //                usuarioModels.add(new UsuarioModel("David", "Teste teste", "5255","141011993"));
-                //
-                //                adapter = new UsuarioAdapter(usuarioModels,getApplicationContext());
-                //
-                //                listView.setAdapter(adapter);
-
             }
         });
+    }
+
+    private void addNewUser() {
+
+
+        EditText nome = alertaView.findViewById(R.id.nomeDialog);
+        EditText tipo = alertaView.findViewById(R.id.tipoDialog);
+        EditText numeroVersao = alertaView.findViewById(R.id.numeroDaVersaoDialog);
+        EditText lancamento = alertaView.findViewById(R.id.lancamento);
+
+        usuarioModels.add(new UsuarioModel("" + nome.getText(), "" + tipo.getText(), "" + numeroVersao.getText(), "" + lancamento.getText()));
+
+        adapter = new UsuarioAdapter(usuarioModels,getApplicationContext());
+
+        listView.setAdapter(adapter);
     }
 
     private void createAlertDialog() {
@@ -156,8 +165,16 @@ public class MainActivity extends AppCompatActivity
         //definimos para o botão do layout um clickListener
         alertaView.findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                //exibe um Toast informativo.
-                Toast.makeText(MainActivity.this, "alerta.dismiss()", Toast.LENGTH_SHORT).show();
+                    addNewUser();
+
+
+//                final TextView nome = alertaView.findViewById(R.id.nome);
+//                final TextView tipo = alertaView.findViewById(R.id.tipo);
+//                final TextView numeroDaVersao = alertaView.findViewById(R.id.numeroDaVersao);
+//                final TextView dataLancamento = alertaView.findViewById(R.id.lancamento);
+//
+//
+//                Toast.makeText(MainActivity.this, (String) nome.getText()+" "+(String) tipo.getText() +" "+(String) numeroDaVersao.getText() +" "+(String) dataLancamento.getText(), Toast.LENGTH_SHORT).show();
                 //desfaz o alerta.
                 alerta.dismiss();
             }
