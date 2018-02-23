@@ -14,6 +14,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,24 +25,25 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TextView mTextMessage;
-
+    // Lista de usuários
     ArrayList<UsuarioModel> usuarioModels;
     ListView listView;
     private static UsuarioAdapter adapter;
 
-    //atributo da classe.
     private AlertDialog alerta;
 
     View alertaView;
+
+    public Calendar calendar = Calendar.getInstance();
 
 
     @Override
@@ -145,7 +148,7 @@ public class MainActivity extends AppCompatActivity
         EditText nome = alertaView.findViewById(R.id.nomeDialog);
         EditText tipo = alertaView.findViewById(R.id.tipoDialog);
         EditText numeroVersao = alertaView.findViewById(R.id.numeroDaVersaoDialog);
-        EditText lancamento = alertaView.findViewById(R.id.dataLancamento);
+        EditText lancamento = alertaView.findViewById(R.id.dialogDataLancamento);
 
         if( nome.getText().toString().length() == 0 ) {
             nome.setError( "Nome é obrigatório!" );
@@ -162,8 +165,11 @@ public class MainActivity extends AppCompatActivity
             valido = false;
         }
 
-        if( lancamento.getText().toString().length() == 0 ) {
-            lancamento.setError( "Lançamento é obrigatório!" );
+        String lancamentoInput = lancamento.getText().toString();
+
+        if( lancamentoInput.length() == 0 || !lancamentoInput.matches("([0-9]{2})/([0-9]{2})/([0-9]{4})")) {
+            lancamento.setText("");
+            lancamento.setError( "Data de lançamento inválida!" );
             valido = false;
         }
 
@@ -178,6 +184,8 @@ public class MainActivity extends AppCompatActivity
             alerta.dismiss();
         }
     }
+
+    EditText date;
 
     private void createAlertDialog() {
         //LayoutInflater é utilizado para inflar nosso layout em uma view.

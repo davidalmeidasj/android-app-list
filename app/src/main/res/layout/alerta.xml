@@ -1,102 +1,197 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.android_app_list.MainActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:background="#FFFFBB33"
-        android:contentDescription="@string/app_name"
-        android:scaleType="center"
-        android:src="@drawable/header_logo" />
+    <TextView
+        android:id="@+id/tituloDialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="@string/titulo_dialog"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/nomeDialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/nome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloDialog" />
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/nomeDialog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="16dp"
-            android:hint="@string/nome"
-            android:inputType="text" />
+    <EditText
+        android:id="@+id/tipoDialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/tipo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nomeDialog" />
 
+    <EditText
+        android:id="@+id/numeroDaVersaoDialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="@string/numeroDaVersao"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tipoDialog" />
 
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tipoDialog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="4dp"
-            android:fontFamily="sans-serif"
-            android:hint="@string/tipo"
-            android:inputType="text" />
-
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/numeroDaVersaoDialog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="4dp"
-            android:fontFamily="sans-serif"
-            android:hint="@string/numeroDaVersao"
-            android:inputType="numberDecimal" />
-
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-    android:layout_width="425dp"
-    android:layout_height="match_parent">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/dataLancamento"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="4dp"
-            android:focusable="false"
-            android:fontFamily="sans-serif"
-            android:hint="@string/dataLancamento"
-            android:inputType="date"
-            android:onClick="showTimePickerDialog" />
-
-    </android.support.design.widget.TextInputLayout>
-
+    <EditText
+        android:id="@+id/dialogDataLancamento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="date"
+        android:hint="@string/dialogDataLancamento"
+        app:layout_constraintEnd_toStartOf="@+id/dataLancamento"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numeroDaVersaoDialog" />
 
     <ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/dataLancamento"
+        android:layout_width="52dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="showTimePickerDialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dialogDataLancamento"
+        app:layout_constraintTop_toBottomOf="@+id/numeroDaVersaoDialog"
         app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
 
     <Button
         android:id="@+id/bt"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Cadastrar" />
-</LinearLayout>
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/btn_dialog"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialogDataLancamento" />
+</android.support.constraint.ConstraintLayout>
+
+
+
+    <!--<ImageView-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="52dp"-->
+<!--android:background="#FFFFBB33"-->
+<!--android:contentDescription="@string/app_name"-->
+<!--android:scaleType="center"-->
+<!--android:src="@drawable/header_logo" />-->
+
+<!--<android.support.design.widget.TextInputLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent">-->
+
+<!--<android.support.design.widget.TextInputEditText-->
+    <!--android:id="@+id/nomeDialog"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="4dp"-->
+    <!--android:layout_marginLeft="4dp"-->
+    <!--android:layout_marginRight="4dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:hint="@string/nome"-->
+    <!--android:inputType="text" />-->
+
+
+<!--</android.support.design.widget.TextInputLayout>-->
+
+<!--<android.support.design.widget.TextInputLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent">-->
+
+<!--<android.support.design.widget.TextInputEditText-->
+    <!--android:id="@+id/tipoDialog"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="16dp"-->
+    <!--android:layout_marginLeft="4dp"-->
+    <!--android:layout_marginRight="4dp"-->
+    <!--android:layout_marginTop="4dp"-->
+    <!--android:fontFamily="sans-serif"-->
+    <!--android:hint="@string/tipo"-->
+    <!--android:inputType="text" />-->
+
+
+<!--</android.support.design.widget.TextInputLayout>-->
+
+<!--<android.support.design.widget.TextInputLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent">-->
+
+<!--<android.support.design.widget.TextInputEditText-->
+    <!--android:id="@+id/numeroDaVersaoDialog"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="16dp"-->
+    <!--android:layout_marginLeft="4dp"-->
+    <!--android:layout_marginRight="4dp"-->
+    <!--android:layout_marginTop="4dp"-->
+    <!--android:fontFamily="sans-serif"-->
+    <!--android:hint="@string/numeroDaVersao"-->
+    <!--android:inputType="numberDecimal" />-->
+
+
+<!--</android.support.design.widget.TextInputLayout>-->
+
+<!--<android.support.design.widget.TextInputLayout-->
+<!--android:layout_width="425dp"-->
+<!--android:layout_height="match_parent">-->
+
+<!--<android.support.design.widget.TextInputEditText-->
+    <!--android:id="@dataLancamentoento"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginBottom="16dp"-->
+    <!--android:layout_marginLeft="4dp"-->
+    <!--android:layout_marginRight="4dp"-->
+    <!--android:layout_marginTop="4dp"-->
+    <!--android:focusable="false"-->
+    <!--android:fontFamily="sans-serif"-->
+    <!--android:hint="@strdataLancamentoento"-->
+    <!--android:inputType="date"-->
+    <!--android:onClick="showTimePickerDialog" />-->
+
+<!--</android.support.design.widget.TextInputLayout>-->
+
+
+<!--<ImageButton-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--app:srcCompat="@android:drawable/ic_menu_my_calendar" />-->
+
+<!--<Button-->
+<!--android:id="@+id/bt"-->
+<!--android:layout_width="fill_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:text="Cadastrar" />-->

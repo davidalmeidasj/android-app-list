@@ -11,5 +11,8 @@
     <string name="nome">Nome</string>
     <string name="tipo">Tipo</string>
     <string name="numeroDaVersao">Número da versão</string>
-    <string name="dataLancamento">Lançamento</string>
+    <string name="dialogDataLancamento">Lançamento</string>
+    <string name="titulo_dialog">Novo usuário</string>
+    <string name="btn_dialog">Cadastrar</string>
+    <string name="formato_data">dd/MM/Y</string>
 </resources>

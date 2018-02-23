@@ -10,6 +10,8 @@ import android.widget.EditText;
 
 import java.util.Calendar;
 
+import util.Helpers;
+
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
 
@@ -17,7 +19,10 @@ public class DatePickerFragment extends DialogFragment
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-        final Calendar c = Calendar.getInstance();
+        MainActivity activityMain = (MainActivity) getActivity();
+
+        final Calendar c = activityMain.calendar;
+
         int day = c.get(Calendar.DAY_OF_MONTH);
         int month = c.get(Calendar.MONTH);
         int year = c.get(Calendar.YEAR);
@@ -32,11 +37,16 @@ public class DatePickerFragment extends DialogFragment
 
         View alertaView = activityMain.alertaView;
 
-        EditText lancamento = alertaView.findViewById(R.id.dataLancamento);
+        EditText lancamento = alertaView.findViewById(R.id.dialogDataLancamento);
 
-        String data = day + "/" + month + "/" + year;
+        Calendar calendar = Helpers.buildCalendar(year, month, day);
 
-        lancamento.setText(data);
+        String dateFormat = Helpers.format(calendar, getString(R.string.formato_data));
 
+        activityMain.calendar = calendar;
+
+        lancamento.setText(dateFormat);
+
+        lancamento.requestFocus();
     }
 }
