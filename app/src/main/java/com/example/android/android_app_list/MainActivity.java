@@ -132,7 +132,6 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onClick(View view) {
-
                 //Exibe
                 alerta.show();
             }
@@ -141,17 +140,43 @@ public class MainActivity extends AppCompatActivity
 
     private void addNewUser() {
 
+        Boolean valido = true;
 
         EditText nome = alertaView.findViewById(R.id.nomeDialog);
         EditText tipo = alertaView.findViewById(R.id.tipoDialog);
         EditText numeroVersao = alertaView.findViewById(R.id.numeroDaVersaoDialog);
-        EditText lancamento = alertaView.findViewById(R.id.lancamento);
+        EditText lancamento = alertaView.findViewById(R.id.dataLancamento);
 
-        usuarioModels.add(new UsuarioModel("" + nome.getText(), "" + tipo.getText(), "" + numeroVersao.getText(), "" + lancamento.getText()));
+        if( nome.getText().toString().length() == 0 ) {
+            nome.setError( "Nome é obrigatório!" );
+            valido = false;
+        }
 
-        adapter = new UsuarioAdapter(usuarioModels,getApplicationContext());
+        if( tipo.getText().toString().length() == 0 ) {
+            tipo.setError( "Tipo é obrigatório!" );
+            valido = false;
+        }
 
-        listView.setAdapter(adapter);
+        if( numeroVersao.getText().toString().length() == 0 ) {
+            numeroVersao.setError( "Número da versão é obrigatório!" );
+            valido = false;
+        }
+
+        if( lancamento.getText().toString().length() == 0 ) {
+            lancamento.setError( "Lançamento é obrigatório!" );
+            valido = false;
+        }
+
+        if (valido) {
+            usuarioModels.add(new UsuarioModel("" + nome.getText(), "" + tipo.getText(), "" + numeroVersao.getText(), "" + lancamento.getText()));
+
+            adapter = new UsuarioAdapter(usuarioModels,getApplicationContext());
+
+            listView.setAdapter(adapter);
+
+            //desfaz o alerta.
+            alerta.dismiss();
+        }
     }
 
     private void createAlertDialog() {
@@ -165,18 +190,7 @@ public class MainActivity extends AppCompatActivity
         //definimos para o botão do layout um clickListener
         alertaView.findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                    addNewUser();
-
-
-//                final TextView nome = alertaView.findViewById(R.id.nome);
-//                final TextView tipo = alertaView.findViewById(R.id.tipo);
-//                final TextView numeroDaVersao = alertaView.findViewById(R.id.numeroDaVersao);
-//                final TextView dataLancamento = alertaView.findViewById(R.id.lancamento);
-//
-//
-//                Toast.makeText(MainActivity.this, (String) nome.getText()+" "+(String) tipo.getText() +" "+(String) numeroDaVersao.getText() +" "+(String) dataLancamento.getText(), Toast.LENGTH_SHORT).show();
-                //desfaz o alerta.
-                alerta.dismiss();
+                addNewUser();
             }
         });
 

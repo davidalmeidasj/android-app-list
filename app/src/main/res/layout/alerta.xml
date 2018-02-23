@@ -1,7 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:orientation="vertical"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <ImageView
         android:layout_width="match_parent"
@@ -17,14 +18,14 @@ android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/nomeDialog"
-            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
-            android:layout_marginBottom="4dp"
-            android:hint="@string/nome"/>
+            android:layout_marginTop="16dp"
+            android:hint="@string/nome"
+            android:inputType="text" />
 
 
     </android.support.design.widget.TextInputLayout>
@@ -35,15 +36,15 @@ android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/tipoDialog"
-            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="sans-serif"
-            android:hint="@string/tipo"/>
+            android:hint="@string/tipo"
+            android:inputType="text" />
 
 
     </android.support.design.widget.TextInputLayout>
@@ -54,46 +55,48 @@ android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/numeroDaVersaoDialog"
-            android:inputType="numberDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="sans-serif"
-            android:hint="@string/numeroDaVersao"/>
+            android:hint="@string/numeroDaVersao"
+            android:inputType="numberDecimal" />
 
 
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:layout_width="425dp"
+    android:layout_height="match_parent">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/lancamento"
+            android:id="@+id/dataLancamento"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
             android:layout_marginTop="4dp"
-            android:fontFamily="sans-serif"
-            android:hint="@string/lancamento"
-            android:onClick="showTimePickerDialog"
             android:focusable="false"
-            android:inputType="date" />
-
+            android:fontFamily="sans-serif"
+            android:hint="@string/dataLancamento"
+            android:inputType="date"
+            android:onClick="showTimePickerDialog" />
 
     </android.support.design.widget.TextInputLayout>
 
 
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
 
-<Button
-    android:id="@+id/bt"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:text="Cadastrar"
-    />
+    <Button
+        android:id="@+id/bt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar" />
 </LinearLayout>

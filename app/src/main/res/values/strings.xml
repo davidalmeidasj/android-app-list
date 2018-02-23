@@ -11,5 +11,5 @@
     <string name="nome">Nome</string>
     <string name="tipo">Tipo</string>
     <string name="numeroDaVersao">Número da versão</string>
-    <string name="lancamento">Data de lançamento</string>
+    <string name="dataLancamento">Lançamento</string>
 </resources>

@@ -4,13 +4,13 @@ public class UsuarioModel {
     String nome;
     String tipo;
     String numeroDaVersao;
-    String lancamento;
+    String dataLancamento;
 
-    public UsuarioModel(String nome, String tipo, String price, String lancamento) {
+    public UsuarioModel(String nome, String tipo, String price, String dataLancamento) {
         this.nome = nome;
         this.tipo = tipo;
         this.numeroDaVersao = price;
-        this.lancamento = lancamento;
+        this.dataLancamento = dataLancamento;
     }
 
     public String getNome() {
@@ -37,11 +37,11 @@ public class UsuarioModel {
         this.numeroDaVersao = numeroDaVersao;
     }
 
-    public String getLancamento() {
-        return lancamento;
+    public String getDataLancamento() {
+        return dataLancamento;
     }
 
-    public void setLancamento(String lancamento) {
-        this.lancamento = lancamento;
+    public void setDataLancamento(String dataLancamento) {
+        this.dataLancamento = dataLancamento;
     }
 }

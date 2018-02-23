@@ -32,7 +32,7 @@ public class DatePickerFragment extends DialogFragment
 
         View alertaView = activityMain.alertaView;
 
-        EditText lancamento = alertaView.findViewById(R.id.lancamento);
+        EditText lancamento = alertaView.findViewById(R.id.dataLancamento);
 
         String data = day + "/" + month + "/" + year;
 
